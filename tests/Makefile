@@ -1,2 +1,6 @@
 bdd:
-	docker-compose up --exit-code-from bdd
+	docker-compose up --build --exit-code-from bdd
+
+up:
+	docker-compose up --build
+	
