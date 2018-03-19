@@ -1,12 +1,15 @@
 version: '3'
 
 services:
+  # Our "service" to test against.  It simply serves the files in the src/ dir
   web:
     build:
       context: ..
     command: "python -m http.server 8080"
     ports:
       - "8080:8080"
+  # The bdd service runs the cucumber-js tests. It is up to the cucumber-js tests to wait for
+  # the service to become live in a "Given" statement.
   bdd:
     build: .
     command: "./node_modules/.bin/cucumber-js"
